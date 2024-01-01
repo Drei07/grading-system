@@ -1,15 +1,9 @@
-@php
-    $message = '';
-    if ($student->final_grade >= 90) {
-        $message = 'You did a great job this semester!';
-    } elseif ($student->final_grade >= 80) {
-        $message = 'Nice job on this semester!';
-    } elseif ($student->final_grade >= 75) {
-        $message = "I'm glad you survived this semester!";
-    } else {
-        $message = "I'm sorry but see you next semester!";
-    }
-@endphp
+@if(session('student_data'))
+    {{-- Access student data --}}
+    @php
+        $student = session('student_data');
+    @endphp
+@endif
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 

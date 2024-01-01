@@ -13,19 +13,24 @@ class SearchController extends Controller
         return view('index');
     }
 
+
+
     public function processForm(Request $request)
     {
         // Validate the form data
-        $validatedData = $request->validate([
-            'student_number' => 'required|numeric',
-        ]);
+        $validatedData = $request->validate(['student_number' => 'required|numeric',]);
 
         // Check if student number exists in the database
         $student = Student::where('student_number', $validatedData['student_number'])->first();
 
         if ($student) {
-            // Student found, display the result
-            return view('result', ['student' => $student]);
+
+            // Student found, store in session
+            session(['student_data' => $student]);
+
+            // Redirect to the result route
+            return redirect()->route('result');
+
         } else {
             // Use session() to set the status data
             session([
@@ -36,6 +41,20 @@ class SearchController extends Controller
             ]);
 
             // Additional SweetAlert customization
+            return redirect()->route('index');
+        }
+    }
+
+    public function showResult()
+    {
+        // Check if student data exists in the session
+        $studentData = session('student_data');
+
+        if ($studentData) {
+            // Student data found, display the result
+            return view('result', ['student' => $studentData]);
+        } else {
+            // Redirect to the index page if no student data in the session
             return redirect()->route('index');
         }
     }
