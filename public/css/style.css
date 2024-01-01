@@ -83,7 +83,7 @@ outline: none;
     width: 100%;
     font-size: 19px;
     font-family: Arial, Helvetica, sans-serif;
-    color: #00688a;
+    color: #3a3a3a;
     border: 0;
     padding: 30px 0;
     margin: 0;
@@ -106,7 +106,7 @@ outline: none;
     padding: 26px;
     margin: 0;
     border: 0;
-    background-color: #1eaddc;
+    background-color: #444;
     transition: 0.2s ease background-color;
     border-radius: 50%;
   }
@@ -124,7 +124,7 @@ outline: none;
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background-color: #1eaddc;
+    background-color: #444;
     transition: 0.9s ease all;
     z-index: 1;
   }
@@ -164,7 +164,7 @@ outline: none;
 
   #app.opened {
     width: 434px;
-    box-shadow: 0 10px 30px #0190bf;
+    box-shadow: 0 10px 30px #787879;
   }
 
   @media screen and (max-width: 515px) {
@@ -178,7 +178,7 @@ outline: none;
   }
 
   .opened button {
-    color: #1eaddc;
+    color: #444;
     background-color: #fff;
     box-shadow: none;
     cursor: pointer;
@@ -225,7 +225,7 @@ font-size:5rem;
 }
 
 .result .button {
-    background-color: #1eaddc;
+    background-color: #444;
     color: #fff;
     padding: 10px 20px;
     cursor: pointer;
@@ -308,4 +308,44 @@ font-size:5rem;
     .result .label {
         font-size:1.7rem;
     }
+  }
+
+
+/* Loader */
+.loader {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: #FFF;
+	z-index: 1000000000;
+	transition: opacity 1s, visibility 1s;
+  }
+
+  .loader--hidden {
+	opacity: 0;
+	visibility: hidden;
+  }
+
+  .loader::after {
+	content: "";
+	width: 75px;
+	height: 75px;
+	border: 15px solid #dddddd;
+	border-top-color: var(--main);
+	border-radius: 50%;
+	animation: loading 1s ease infinite;
+  }
+
+  @keyframes loading {
+	from {
+	  transform: rotate(0turn);
+	}
+	to {
+	  transform: rotate(1turn);
+	}
   }

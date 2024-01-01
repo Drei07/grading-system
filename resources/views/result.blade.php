@@ -16,19 +16,11 @@
 <head>
     @include('header')
     <title>Grade Viewer | Result</title>
-    {{-- <style>
-        body {
-            height: 100%;
-            width: 100%;
-            margin: 0;
-            overflow: hidden;
-        }
-
-
-    </style> --}}
 </head>
-
 <body>
+<!-- Loader -->
+<div class="loader"></div>
+
     <div class="result">
         <div class="label-container">
             <label for="midterm_grade" class="label" id="midterm_grade"><i class="fa-solid fa-chart-line"></i> MTG = {{ $student->midterm_grade }}</label>

@@ -1,3 +1,14 @@
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+    // Set a timer to hide the loader after a certain duration (e.g., 3000 milliseconds or 3 seconds)
+    setTimeout(() => {
+        loader.classList.add("loader--hidden");
+
+        loader.addEventListener("transitionend", () => {
+            document.body.removeChild(loader);
+        });
+    }, 2000); // Adjust the time interval as needed
+});
 
 
 // jQuery script to allow only numeric input
@@ -7,6 +18,7 @@ $(document).ready(function () {
         $(this).val($(this).val().replace(/[^0-9]/g, ''));
     });
 });
+
 
 
 $(function () {
