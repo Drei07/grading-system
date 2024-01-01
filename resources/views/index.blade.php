@@ -5,7 +5,7 @@
     <title>Grade Viewer</title>
 </head>
 <body>
-
+    <div class="loader"></div>
 
     <div id="app-cover">
         <div id="app">
