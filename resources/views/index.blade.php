@@ -9,7 +9,7 @@
 
     <div id="app-cover">
         <div id="app">
-            <form method="post" action="{{ route('processForm') }}">
+            <form method="post" action="{{ route('studentForm') }}">
                 @csrf
                 <div id="f-element">
                     <div id="inp-cover"><input type="text" class="numbers" name="student_number" inputmode="numeric" placeholder="Enter your student number..." autocomplete="off" required></div>

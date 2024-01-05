@@ -136,16 +136,8 @@ outline: none;
   #layer,
   #init {
     position: fixed;
-    top: 50%;
-    margin: -40px auto 0 auto;
-  }
-
-  @media screen and (max-width: 432px) {
-    #layer,
-    #init {
-      position: fixed;
-      margin: -40px auto 0px auto;
-    }
+    top: auto;
+    margin: -80px auto 0 auto;
   }
 
   #layer {

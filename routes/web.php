@@ -18,6 +18,6 @@ use App\Http\Controllers\SearchController;
 
 // Route to display the search form
 
-Route::get('/', [SearchController::class, 'showForm'])->name('index');
-Route::post('/result', [SearchController::class, 'processForm'])->name('processForm');
-Route::get('/result', [SearchController::class, 'showResult'])->name('result'); // Add this line
+Route::get('/', [SearchController::class, 'showForm'])->name('goBack');
+Route::post('/result', [SearchController::class, 'searchStudentNumber'])->name('studentForm');
+Route::get('/result', [SearchController::class, 'studentDataExists'])->name('result'); // Add this line

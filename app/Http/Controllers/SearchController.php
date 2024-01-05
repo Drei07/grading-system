@@ -15,7 +15,7 @@ class SearchController extends Controller
 
 
 
-    public function processForm(Request $request)
+    public function searchStudentNumber(Request $request)
     {
         // Validate the form data
         $validatedData = $request->validate(['student_number' => 'required|numeric',]);
@@ -41,11 +41,11 @@ class SearchController extends Controller
             ]);
 
             // Additional SweetAlert customization
-            return redirect()->route('index');
+            return redirect()->route('goBack');
         }
     }
 
-    public function showResult()
+    public function studentDataExists()
     {
         // Check if student data exists in the session
         $studentData = session('student_data');
@@ -55,7 +55,7 @@ class SearchController extends Controller
             return view('result', ['student' => $studentData]);
         } else {
             // Redirect to the index page if no student data in the session
-            return redirect()->route('index');
+            return redirect()->route('goBack');
         }
     }
 }
