@@ -18,7 +18,7 @@ class SearchController extends Controller
     public function searchStudentNumber(Request $request)
     {
         // Validate the form data
-        $validatedData = $request->validate(['student_number' => 'required|numeric',]);
+        $validatedData = $request->validate(['student_number' => 'required|string',]);
 
         // Check if student number exists in the database
         $student = Student::where('student_number', $validatedData['student_number'])->first();
